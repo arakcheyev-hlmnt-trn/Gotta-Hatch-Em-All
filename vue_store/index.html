@@ -12,9 +12,12 @@
 
 <body>
   <div id="app">
-
-    <h1>{{ product }}</h1>
-    <!-- Solution -->
+    <div class="product-image">
+      <img :src="image">
+    </div>
+    <div class="product-info">
+      <h1><a :href="link">{{ product }}</a></h1>
+    </div>
     <p>{{ description }}</p>
     <!-- Solution -->
   </div>
