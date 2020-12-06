@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            cart: 0,
+            cart: [],
             premium: false,
             details: ['50% cotton', '30% wool', '20% polyester']
         }
@@ -9,6 +9,9 @@ const app = Vue.createApp({
     methods: {
         details() {
             return this.details
+        },
+        updateCart(id) {
+            this.cart.push(id)
         }
     }
 })
