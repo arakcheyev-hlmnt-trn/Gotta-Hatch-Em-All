@@ -11,7 +11,8 @@ app.component('product-display', {
     },
     template:
         /*html*/
-        `<div class="product-display">
+        `
+    <div class="product-display">
       <div class="product-container">
         <div class="product-image">
           <img v-bind:src="image">
@@ -40,6 +41,9 @@ app.component('product-display', {
           </button>
         </div>
       </div>
+
+      <review-list v-if="reviews.length > 0" :reviews="reviews"></review-list>
+      <review-form @review-submitted="addReview"></review-form>
     </div>`,
     data() {
         return {
@@ -59,7 +63,8 @@ app.component('product-display', {
                     image: './assets/images/socks_blue.jpg',
                     quantity: 0
                 },
-            ]
+            ],
+            reviews: [],
         }
     },
     methods: {
@@ -69,6 +74,9 @@ app.component('product-display', {
         updateVariant(index) {
             this.selectedVariant = index
             console.log(index)
+        },
+        addReview(productReview) {
+            this.reviews.push(productReview)
         }
     },
     computed: {
